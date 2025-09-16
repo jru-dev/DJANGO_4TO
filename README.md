@@ -1,1 +1,1 @@
-# el repo con todos los trabajos
+# el repo con todos los laboratorios
