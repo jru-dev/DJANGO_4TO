@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Movies</h1>
+
+<form method="get" action=".">
+  <input type="text" name="q" placeholder="Buscar peliculas..." value="{{ query|default:'' }}">
+  <button type="submit">Buscar</button>
+</form>
+
+<hr>
+
+<ul>
+  {% for movie in movies %}
+    <li>
+      <a href="{% url 'movies:movie_detail' movie.slug %}">
+        {{ movie.title }} ({{ movie.release_date|date:"Y" }})
+      </a>
+    </li>
+  {% empty %}
+    <li>No movies found.</li>
+  {% endfor %}
+</ul>
+{% endblock %}

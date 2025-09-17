@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Profile: {{ profile.user.username }}</h1>
+<p>{{ profile.bio }}</p>
+
+<h2>Favorite Genres</h2>
+<ul>
+  {% for genre in profile.favorite_genres.all %}
+    <li>{{ genre.name }}</li>
+  {% empty %}
+    <li>No favorite genres</li>
+  {% endfor %}
+</ul>
+
+<h2>Recommendations</h2>
+<ul>
+  {% for movie in recommendations %}
+    <li>{{ movie.title }} ({{ movie.avg_rating }}/10)</li>
+  {% empty %}
+    <li>No recommendations yet</li>
+  {% endfor %}
+</ul>
+{% endblock %}
